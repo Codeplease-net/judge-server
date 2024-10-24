@@ -1,29 +1,6 @@
-<h1 align="center">
-  <img src="https://github.com/DMOJ/online-judge/blob/master/logo.png?raw=true" width="120px">
-  <br>
-  DMOJ Judge
-</h1>
-<p align="center">
-  <a href="https://github.com/DMOJ/judge-server/actions?query=workflow%3Abuild">
-    <img alt="Linux Build Status" src="https://img.shields.io/github/actions/workflow/status/DMOJ/judge-server/build.yml?branch=master&logo=linux"/>
-  </a>
-  <a href="https://ci.dmoj.ca/view/DMOJ/job/dmoj-judge-freebsd-py3/">
-    <img alt="FreeBSD Build Status" src="https://img.shields.io/jenkins/build?jobUrl=https%3A%2F%2Fci.dmoj.ca%2Fview%2FDMOJ%2Fjob%2Fdmoj-judge-freebsd-py3%2F&logo=freebsd"/>
-  </a>
-  <a href="https://codecov.io/gh/DMOJ/judge-server">
-    <img alt="Coverage" src="https://img.shields.io/codecov/c/github/DMOJ/judge-server.svg"/>
-  </a>
-  <a href="LICENSE.md">
-    <img alt="License" src="https://img.shields.io/github/license/DMOJ/judge-server"/>
-  </a>
-  <a href="https://dmoj.ca/about/discord/">
-    <img src="https://img.shields.io/discord/677340492651954177?color=%237289DA&label=Discord"/>
-  </a>
-</p>
+# Judge Server From VNOI (forked from DMOJ)
 
-Contest judge backend for the [DMOJ site](https://github.com/DMOJ/online-judge) interface, supporting <b>IO-based</b>, <b>interactive</b>, and <b>signature-graded</b> tasks, with <b>runtime data generators</b> and <b>custom output validators</b>.
-
-See it in action at [dmoj.ca](https://dmoj.ca/)!
+Setup [tutorial here](https://vnoi-admin.github.io/vnoj-docs/#/judge/setting_up_a_judge)
 
 ## Supported platforms and runtimes
 
@@ -111,18 +88,18 @@ Note that **the only Linux distribution with first-class support is the latest D
 We periodically publish builds [on PyPI](https://pypi.org/project/dmoj/). This is the easiest way to get started,
 but may not contain all the latest features and improvements.
 
-```
-$ pip install dmoj
+```bash
+pip install dmoj
 ```
 
 ### Bleeding-edge build
 
 This is the version of the codebase we run live on [dmoj.ca](https://dmoj.ca/).
 
-```
-$ git clone --recursive https://github.com/DMOJ/judge-server.git
-$ cd judge-server
-$ pip install -e .
+```bash
+git clone --recursive https://github.com/DMOJ/judge-server.git
+cd judge-server
+pip install -e .
 ```
 
 Several environment variables can be specified to control the compilation of the sandbox:
@@ -146,7 +123,7 @@ to be placed under `/mnt/problems`, and judge-specific configuration to be in
 `/mnt/problems/judge.yml`. Note that runtime configuration is already done for you,
 and will be merged automatically into the `judge.yml` provided.
 
-```
+```bash
 $ git clone --recursive https://github.com/DMOJ/judge-server.git
 $ cd judge-server/.docker
 $ make judge-tier1
@@ -166,7 +143,7 @@ $ exec docker run \
 
 ### Running a judge server
 
-```
+```bash
 $ dmoj --help
 usage: dmoj [-h] [-p SERVER_PORT] -c CONFIG [-l LOG_FILE] [--no-watchdog]
             [-a API_PORT] [-A API_HOST] [-s] [-k] [-T TRUSTED_CERTIFICATES]
@@ -211,7 +188,7 @@ optional arguments:
 
 ### Running a CLI judge
 
-```
+```bash
 $ dmoj-cli --help
 usage: dmoj-cli [-h] -c CONFIG
                 [-e ONLY_EXECUTORS | -x EXCLUDE_EXECUTORS]
