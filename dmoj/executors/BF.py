@@ -185,7 +185,7 @@ def compile_to_llvm(source_code: bytes) -> bytes:
 
 OPT_PASSES = [
     # Shorten instructions
-    'instcombine',
+    'instcombine<no-verify-fixpoint>',
     'gvn',
     # Optimize loops
     'loop-rotate',
@@ -193,7 +193,7 @@ OPT_PASSES = [
     'indvars',
     # Clean up
     'simplifycfg',
-    'instcombine',
+    'instcombine<no-verify-fixpoint>',
     'gvn',
 ]
 
